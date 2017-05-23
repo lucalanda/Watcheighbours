@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="461.0" prefWidth="743.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="databaseDataAnalitycs.MainController">
+   <children>
+      <PieChart fx:id="pieChart" layoutX="8.0" layoutY="51.0" prefHeight="335.0" prefWidth="726.0" />
+      <TextField fx:id="city" layoutX="82.0" layoutY="386.0" prefHeight="26.0" prefWidth="274.0" promptText="città" />
+      <TextField fx:id="suburb" layoutX="82.0" layoutY="421.0" prefHeight="26.0" prefWidth="274.0" promptText="quartiere" />
+      <Button layoutX="653.0" layoutY="386.0" mnemonicParsing="false" onAction="#addCityToPie" text="Aggiungi" />
+      <CheckBox fx:id="activeCheckBox" layoutX="381.0" layoutY="390.0" mnemonicParsing="false" selected="true" text="Attive" />
+      <CheckBox fx:id="inChargeCheckBox" layoutX="459.0" layoutY="390.0" mnemonicParsing="false" text="In Carica" />
+      <CheckBox fx:id="closedCheckBox" layoutX="560.0" layoutY="390.0" mnemonicParsing="false" text="Chiuse" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="8.0" layoutY="14.0" prefHeight="37.0" prefWidth="726.0" text="Confronto numero di Segnalazione per città e quartiere" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Button layoutX="658.0" layoutY="421.0" mnemonicParsing="false" onAction="#removeToPie" text="Rimuovi" />
+      <ChoiceBox fx:id="menu" layoutX="379.0" layoutY="421.0" prefHeight="26.0" prefWidth="274.0" />
+      <Label layoutX="26.0" layoutY="391.0" prefHeight="16.0" prefWidth="38.0" text="Città" />
+      <Label layoutX="14.0" layoutY="426.0" text="Quartiere" />
+   </children>
+</AnchorPane>

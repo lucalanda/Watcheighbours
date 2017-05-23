@@ -1,0 +1,68 @@
+<!-- https://ant.apache.org/manual/Types/fileset.html -->
+<!-- https://ant.apache.org/manual/using.html -->
+<?xml version="1.0"?>
+<project name="WatchNeighbours" default="dist" basedir="./watchneighbours">
+	<description>
+		This file costruct the Server.
+	</description>
+<!-- set global properties for this build -->
+	<property name="src" location="/watchneighbours/src"/>
+	<property name="configuration_Server" location="/watchneighbours/configuration_Server"/>
+
+	<target name="compile" depends="init"
+	        description="compile the source">
+		<!-- Compile the java code from ${src} into ${build} -->
+	 	<javac srcdir="${src}" destdir="${build}"/>
+	</target>
+<!-- add .jar libraries -->
+	<classpath>
+	      <pathelement path="${classpath}"/>
+		<fileset dir="lib">
+			<include name="**/*.jar"/>
+		</fileset>
+	</classpath>
+<!-- set folder and .java used in the project [I'm not shure, maybe this shud be son of another tag] -->
+	<fileset dir="${src}" casesensitive="yes">
+		<fileset dir = "${server}" casesensitive="yes">
+			<include name="RMI_Server_Balancer.java"/>
+			<include name="RMI_Server_SubUrb.java"/>
+			<include name="RMIServerMain.java"/>
+	
+			<fileset dir = "${observable}" casesensitive="yes">
+				<include name="ConcreteAddReportServices.java"/>
+				<include name="ConcreteDeleteReportService.java"/>
+				<include name="ConcreteUpdateReportService.java"/>
+			</fileset>
+			<exclude name="**/*Test*"/>
+			<exclude dir="JUnitTest"/>
+		</fileset>
+			
+		<fileset dir = "${util}" casesensitive="yes">
+			
+		</fileset>
+			
+		<fileset dir = "${interfaces}" casesensitive="yes">
+			
+		</fileset>
+			
+		<fileset dir = "${databasePackage}" casesensitive="yes">
+			
+		</fileset>
+			
+		<fileset dir = "${exceptions}" casesensitive="yes">
+			
+		</fileset>
+			
+		<fileset dir = "${googleMailClient}" casesensitive="yes">
+		
+		</fileset>
+		
+		<exclude dir="client"/>
+		<exclude dir="GUI"/>
+		<exclude dir="mapEngine"/>
+		<exclude dir="Test"/>
+	</fileset>
+	<fileset dir="${configuration_Server}" casesensitive="yes">
+		<includesfile name="DB.config"/>
+	</fileset>
+</project>
